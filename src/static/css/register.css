@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+	--login-bg: #ffffff;
+	--title-bg: #9d2a86;
+	--left-bg: #e2e2e2;
+	--button: #9d2a86;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100vh;
+	font-family: 'Poppins', sans-serif;
+	overflow-x: hidden;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
+}
+
+.image-container,
+.login-info-container {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 0;
+}
+
+.image-container {
+	background: rgb(241, 241, 241);
+	background: linear-gradient(34deg, rgba(241, 241, 241, 1) 0%, rgba(226, 226, 226, 1) 99%);
+	padding: 1rem;
+}
+
+.img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.login-info-container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding: 2rem;
+	box-sizing: border-box;
+	min-width: 0;
+	width: 100%;
+}
+
+.title-1 {
+	color: var(--title-bg);
+}
+
+.input-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.input-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.input-container label {
+	margin: 0;
+	font-weight: bold;
+	text-align: left;
+}
+
+.input-container .input {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.input-container .full-width {
+	grid-column: span 2;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+
+.btn {
+	cursor: pointer;
+	border: 0px solid;
+	font-size: 14px;
+	font-style: bold;
+	color: rgb(255, 255, 255);
+	padding: 20px 30px;
+	transition: all 674ms ease 0s;
+	width: 300px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+	border-radius: 1px;
+	background: rgb(157, 42, 134);
+	--hover-borderSize: 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row-reverse;
+	--hover-bgc: #3a113d;
+}
+
+.btn:hover {
+	color: rgb(255, 255, 255);
+	width: 337px;
+	background: rgb(58, 17, 61) none repeat scroll 0% 0% / auto padding-box border-box;
+	border-color: rgb(204, 0, 105);
+	border-width: 0px;
+	border-style: solid;
+}
+
+input[type="file"] {
+	position: relative;
+}
+
+input[type="file"]::file-selector-button {
+	width: 136px;
+	color: transparent;
+}
+
+input[type="file"]::before {
+	position: absolute;
+	pointer-events: none;
+	top: 10px;
+	left: 16px;
+	height: 20px;
+	width: 20px;
+	content: "";
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+}
+
+input[type="file"]::after {
+	position: absolute;
+	pointer-events: none;
+	top: 13px;
+	left: 40px;
+	color: #0964b0;
+	content: "Subir foto";
+}
+
+
+input[type="file"]::file-selector-button {
+	border-radius: 4px;
+	padding: 0 16px;
+	height: 40px;
+	cursor: pointer;
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+	margin-right: 16px;
+	transition: background-color 200ms;
+}
+
+input[type="file"]::file-selector-button:hover {
+	background-color: #f3f4f6;
+}
+
+input[type="file"]::file-selector-button:active {
+	background-color: #e5e7eb;
+}
+
+@media (max-width: 1080px) {
+	.container {
+		flex-direction: column;
+	}
+
+	.image-container,
+	.login-info-container {
+		flex: none;
+		width: 100%;
+		background: #ffffff;
+	}
+
+	.img {
+		width: 0px;
+		height: 0px;
+		object-fit: cover;
+	}
+
+	.input-container {
+		grid-template-columns: 1fr;
+	}
+
+	.login-info-container {
+		padding: 1rem;
+	}
+}
