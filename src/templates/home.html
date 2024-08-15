@@ -6,6 +6,7 @@
     <title>Mondongo</title>
 </head>
 <body>
-    Bienvenido caremonda
+    Bienvenido, {{ current_user.name}}
+    <a class="btn" href="{{ url_for('logout')}}">logout</a>
 </body>
 </html>

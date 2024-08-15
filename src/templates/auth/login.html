@@ -9,24 +9,36 @@
 <body>
     <div class="container">
         <div class="image-container">
-            <img class="img" src="static/images/login.png" alt="Imagen de registro" />
+            <img class="img" src="static/images/login.png" alt="Imagen de inicio de sesión" />
         </div>
         <div class="login-info-container">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <h1 class="title">Inicia sesión en <span class="title-1">WePlot</span></h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert"> 
+                {% for message in messages %}
+                    <strong> {{ message }}</strong>
+                    <button class="close-button" aria-label="Close">×</button> 
+                {% endfor %}
+                </div>
+            {% endif %}
+            {% endwith %}
+            <script src="../alerts.js"></script> 
             <form class="input-container" action="/login" method="POST">
                 <div class="input-group full-width">
                     <label for="email">Email*</label>
-                    <input class="input" type="email" id="email" name="email" />
+                    <input class="input" type="email" id="email" name="email" required />
                 </div>
                 <div class="input-group full-width">
                     <label for="password">Contraseña*</label>
-                    <input class="input" type="password" id="password" name="password" />
+                    <input class="input" type="password" id="password" name="password" required />
                 </div>
                 <div class="input-group full-width">
                     <button class="btn full-width" type="submit" id="send">Iniciar sesión</button>
                 </div>
                 <div class="input-group full-width">
-                    <p>¿No tienes cuenta? <a href="register.html" class="span">Regístrate aquí</a></p>
+                    <p>¿No tienes cuenta? <a href="/register" class="span">Regístrate aquí</a></p>
                 </div>
             </form>
         </div>
